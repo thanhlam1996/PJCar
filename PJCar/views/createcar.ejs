@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create Car</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="createcar.css">
+	<script src="ckeditor.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align: center;">Create Car Information</h1>
+		<form method="post" action="http://localhost:8081/create" id="form" enctype="multipart/form-data">
+			<div><h1>Car</h1></div>
+			<div class="form-group">
+				<label>
+					Car Name
+				</label>
+				<input type="text" name="txtcarname" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>
+					Model years
+				</label>
+				<input type="text" name="txtversion" class="form-control">
+			</div>
+			<hr>
+			<div><h1>OverView</h1></div>
+			<div class="overview">
+				<div class="form-group">
+					<label>Country of origin</label>
+					<input type="text" name="overview1" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Manufacturer</label>
+					<input type="text" name="overview2" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Production</label>
+					<input type="text" name="overview3" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Class</label>
+					<input type="text" name="overview4" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Body style</label>
+					<input type="text" name="overview5" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button"  value="Add Overview" class="btn btn-primary" id="addoverview">
+			</div>
+			<hr>
+			<div><h1>Dimension & Weight</h1></div>
+			<div class="dimensionweight">
+				<div class="form-group">
+					<label>Size(LxWxH)</label>
+					<input type="text" name="dimensionweight1" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Wheelbase</label>
+					<input type="text" name="dimensionweight2" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Weight</label>
+					<input type="text" name="dimensionweight3" class="form-control">
+				</div>
+
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Dimension & Weight" class="btn btn-primary" id="adddimensionweight">
+			</div>
+			<hr>
+			<div><h1>Exterior</h1></div>
+			<div class="exterior">
+				<div class="form-group">
+					<label>Color</label>
+					<input type="text" name="exterior1" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Exterior" class="btn btn-primary" id="addexterior">
+			</div>
+			<hr>
+			<div><h1>Interior</h1></div>
+			<div class="interior">
+				<div class="form-group">
+					<label>Seats</label>
+					<input type="text" name="interior1" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Gauges</label>
+					<input type="text" name="interior2" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Interior" class="btn btn-primary" id="addinterior">
+			</div>
+			<hr>
+			<div><h1>Powertrain</h1></div>
+			<div class="powertrain">
+				<div class="form-group">
+					<label>Engine manufacturer</label>
+					<input type="text" name="powertrain1" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Engine</label>
+					<input type="text" name="powertrain2" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Transmission</label>
+					<input type="text" name="powertrain3" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Powertrain" class="btn btn-primary" id="addpowertrain">
+			</div>
+			<hr>
+			<div><h1>Fuel Consumption</h1></div>
+			<div class="fuelconsumption">
+				<div class="form-group">
+					<label>Highway</label>
+					<input type="text" name="fuelconsumption1" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>City</label>
+					<input type="text" name="fuelconsumption2" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Fuel Consumption" class="btn btn-primary" id="addfuelconsumption">
+			</div>
+			<hr>
+			<div><h1>Technology</h1></div>
+			<div class="technology">
+				<div class="form-group">
+					<label>Anti-lock braking system</label>
+					<input type="text" name="technology1" class="form-control">
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Technology" class="btn btn-primary" id="addtechnology">
+			</div>
+			<hr>
+
+			<div><h1>Picture</h1></div>
+			<div class="picture">
+				<div class="form-group">
+					<input type='file' name="picture1" id="picture1"/>
+					<img id="imagepicture1" width="200px" height="150px" style="margin-left: 32px" alt="No image" />
+				</div>
+			</div>
+			<div class="form-group" id="btn_add">						
+				<input type="button" value="Add Picture" class="btn btn-primary" id="addpicture">
+			</div>
+			<hr>
+
+			<div><h1>Description</h1></div>
+			<div class="descriptions">
+				<label class="lable-form">Description</label>
+				<div class="form-group" id="input">
+					<textarea name="description" placeholder="Description" required class="form-control"></textarea>
+				</div>
+			</div>
+			<hr>
+			<div class="submit">
+				<input type="button" value="Cancel" class="btn btn-success">
+				<input type="submit" value="Submit" class="btn btn-success">
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
+<script>
+	CKEDITOR.replace('description');
+</script>
+<script>
+	function readURL(input,x)
+	{
+		if (input.files && input.files[0])
+		{
+			var reader = new FileReader();
+			reader.onload = function (e) 
+			{
+				$(x).attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$(document).ready(function(){
+		$("#form").validate({
+		onfocusout:false,
+		onkeyup:false,
+		onclick:false,
+		rules:{
+			"txtcarname":{
+				required:true
+			},
+			"txtversion":{
+				required:true
+			},
+			"overview1":{
+				required:true
+			},
+			"overview2":{
+				required:true
+			},
+			"overview3":{
+				required:true
+			},
+			"overview4":{
+				required:true
+			},
+			"overview5":{
+				required:true
+			},
+			"dimensionweight1":{
+				required:true
+			},
+			"dimensionweight2":{
+				required:true
+			},
+			"dimensionweight3":{
+				required:true
+			},
+			"exterior1":{
+				required:true
+			},
+			"interior1":{
+				required:true
+			},
+			"interior2":{
+				required:true
+			},
+			"powertrain1":{
+				required:true
+			},
+			"powertrain2":{
+				required:true
+			},
+			"powertrain3":{
+				required:true
+			},
+			"fuelconsumption1":{
+				required:true
+			},
+			"fuelconsumption2":{
+				required:true
+			},
+			"technology1":{
+				required:true
+			},
+			"picture1":{
+				required:true
+			}
+		},
+		messages:{
+			"txtcarname":{
+				required:"Information required-Car Name"
+			},
+			"txtversion":{
+				required:"Information required-ModelYear"
+			},
+			"overview1":{
+				required:"Information required-Country of origin"
+			},
+			"overview2":{
+				required:"Information required-Manufacturer"
+			},
+			"overview3":{
+				required:"Information required-Production"
+			},
+			"overview4":{
+				required:"Information required-Class"
+			},
+			"overview5":{
+				required:"Information required-Body style"
+			},
+			"dimensionweight1":{
+				required:"Information required-Size(LxWxH)"
+			},
+			"dimensionweight2":{
+				required:"Information required-Wheelbase"
+			},
+			"dimensionweight3":{
+				required:"Information required-Weight"
+			},
+			"exterior1":{
+				required:"Information required-Color"
+			},
+			"interior1":{
+				required:"Information required-Seats"
+			},
+			"interior2":{
+				required:"Information required-Gauges"
+			},
+			"powertrain1":{
+				required:"Information required-Engine manufacturer"
+			},
+			"powertrain2":{
+				required:"Information required-Engine"
+			},
+			"powertrain3":{
+				required:"Information required-Transmission"
+			},
+			"fuelconsumption1":{
+				required:"Information required-Highway"
+			},
+			"fuelconsumption2":{
+				required:"Information required-City"
+			},
+			"technology1":{
+				required:"Information required-Anti-lock braking system"
+			},
+			"picture1":{
+				required:"Information required-Picture"
+			}
+
+		}
+	});
+});
+	$(document).ready(function(){
+		var overview=6;
+		var dimensionweight=4;
+		var exterior=2;
+		var interior=3;
+		var powertrain=4;
+		var fuelconsumption=3;
+		var technology=2;
+		var picture=2;
+		$("#addoverview").click(function(){
+			$('.overview').append('<div class="row row_add" id="add'+overview+'"><label class="col-1">Title</label><input type="text" name="titleoverview'+overview+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="overview'+overview+'" class="form-control col-6"><input type="button" value="X" id="'+overview+'" class="btn w-30 btn-danger btn_remove_overview"></div>');
+			overview++;
+		});
+		$("#adddimensionweight").click(function(){
+			$('.dimensionweight').append('<div class="row row_add" id="add'+dimensionweight+'"><label class="col-1">Title</label><input type="text" name="titledimensionweight'+dimensionweight+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="dimensionweight'+dimensionweight+'" class="form-control col-6"><input type="button" value="X" id="'+dimensionweight+'" class="btn btn-danger btn_remove_dimensionweight"></div>');
+			dimensionweight++;
+		});
+		$("#addexterior").click(function(){
+			$('.exterior').append('<div class="row row_add" id="add'+exterior+'"><label class="col-1">Title</label><input type="text" name="titleexterior'+exterior+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="exterior'+exterior+'" class="form-control col-6"><input type="button" value="X" id="'+exterior+'" class="btn w-30 btn-danger btn_remove_exterior"></div>');
+			exterior++;
+		});
+		$("#addinterior").click(function(){
+			$('.interior').append('<div class="row row_add" id="add'+interior+'"><label class="col-1">Title</label><input type="text" name="titleinterior'+interior+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="interior'+interior+'" class="form-control col-6"><input type="button" value="X" id="'+interior+'" class="btn w-30 btn-danger btn_remove_exterior"></div>');
+			interior++;
+		});
+		$("#addpowertrain").click(function(){
+			$('.powertrain').append('<div class="row row_add" id="add'+powertrain+'"><label class="col-1">Title</label><input type="text" name="titlepowertrain'+powertrain+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="powertrain'+powertrain+'" class="form-control col-6"><input type="button" value="X" id="'+powertrain+'" class="btn w-30 btn-danger btn_remove_powertrain"></div>');
+			powertrain++;
+		});
+		$("#addfuelconsumption").click(function(){
+			$('.fuelconsumption').append('<div class="row row_add" id="add'+fuelconsumption+'"><label class="col-1">Title</label><input type="text" name="titlefuelconsumption'+fuelconsumption+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="fuelconsumption'+fuelconsumption+'" class="form-control col-6"><input type="button" value="X" id="'+fuelconsumption+'" class="btn w-30 btn-danger btn_remove_fuelconsumption"></div>');
+			fuelconsumption++;
+		});
+		$("#addtechnology").click(function(){
+			$('.technology').append('<div class="row row_add" id="add'+technology+'"><label class="col-1">Title</label><input type="text" name="titletechnology'+technology+'" class="form-control col-3"><label class="col-1">Content</label><input type="text" name="technology'+technology+'" class="form-control col-6"><input type="button" value="X" id="'+technology+'" class="btn w-30 btn-danger btn_remove_technology"></div>');
+			technology++;
+		});
+		$("#addpicture").click(function(){
+			if(picture==11)
+			{
+				alert("Number of picture isn't greater than 10");
+			}
+			else
+			{
+				$('.picture').append('<div style="margin-left:1px" class="row row_add" id="add'+picture+'"><input type="file" id="picture'+picture+'"  name="picture'+picture+'"><input type="button" value="X" id="'+picture+'" class="btn btn-danger btn_remove_pic"><img id="imagepicture'+picture+'" width="200px" height="150px" alt="No image" /></div>');
+				picture++;
+			}
+		});
+		$(document).on('click', '.btn_remove_overview', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			overview--;
+		});
+		$(document).on('click', '.btn_remove_dimensionweight', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			dimensionweight--;
+		});
+		$(document).on('click', '.btn_remove_exterior', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			exterior--;
+		});
+		$(document).on('click', '.btn_remove_interior', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			interior--;
+		});
+		$(document).on('click', '.btn_remove_powertrain', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			powertrain--;
+		});
+		$(document).on('click', '.btn_remove_fuelconsumption', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			fuelconsumption--;
+		});
+		$(document).on('click', '.btn_remove_technology', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			technology--;
+		});
+		$(document).on('click', '.btn_remove_pic', function(){
+			var button_id=$(this).attr("id");
+			$('#add'+button_id+'').remove();
+			picture--;
+		});
+
+	});
+
+
+$("#picture1").change(function(){
+	readURL(this,"#imagepicture1");
+});
+
+$(document).on('click', '#picture2', function(){
+	$("#picture2").change(function(){
+		readURL(this,"#imagepicture2");
+	});
+});
+
+$(document).on('click', '#picture3', function(){
+	$("#picture3").change(function(){
+		readURL(this,"#imagepicture3");
+	});
+});
+$(document).on('click', '#picture4', function(){
+	$("#picture4").change(function(){
+		readURL(this,"#imagepicture4");
+	});
+});
+$(document).on('click', '#picture5', function(){
+	$("#picture5").change(function(){
+		readURL(this,"#imagepicture5");
+	});
+});
+$(document).on('click', '#picture6', function(){
+	$("#picture6").change(function(){
+		readURL(this,"#imagepicture6");
+	});
+});
+$(document).on('click', '#picture7', function(){
+	$("#picture7").change(function(){
+		readURL(this,"#imagepicture7");
+	});
+});
+$(document).on('click', '#picture8', function(){
+	$("#picture8").change(function(){
+		readURL(this,"#imagepicture8");
+	});
+});
+$(document).on('click', '#picture9', function(){
+	$("#picture9").change(function(){
+		readURL(this,"#imagepicture9");
+	});
+});
+$(document).on('click', '#picture10', function(){
+	$("#picture10").change(function(){
+		readURL(this,"#imagepicture10");
+	});
+});
+
+</script>

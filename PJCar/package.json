@@ -1,0 +1,17 @@
+{
+  "name": "carinformation",
+  "version": "1.0.0",
+  "description": "all",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thanh Lam",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.333.0",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}

@@ -1,0 +1,81 @@
+/* CSS Document */
+#content{
+	background-color: #FFF;
+	min-height: 300px;
+	padding: 10px 20px;
+	font-size: 13px;
+	color: #666;
+	
+}
+#paging{
+	padding: 10px;
+}
+
+
+#paging #rows{
+	list-style: inside none;
+	border: solid 1px #ccc;
+}
+
+#paging #rows li{
+	padding: 5px 10px;
+	border-bottom: solid 1px #ccc;
+	font-weight: bold;
+}
+
+#paging #rows a{
+	float: right;
+	font-weight: normal;
+}
+#paging #rows a:hover{
+	text-decoration: underline;
+	color: red;
+}
+
+#pages{
+	margin: 10px 0px 10px 10px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	list-style: inside none;
+	float: right;
+}
+
+#pages li{
+	
+	height: 25px;
+	line-height: 25px;
+	text-align: center;	
+	border: solid 1px #ccc;
+	float: left;
+	margin-left: 5px;
+	
+}
+
+#pages li.goPrevious, li.goNext{
+	color: #333;
+	padding: 0px 5px;
+	cursor: pointer;
+}
+
+#pages li.goPrevious:hover, li.goNext:hover{
+	background-color: #CFC;
+}
+
+#pages .currentPage{
+	width: 40px;
+	text-align: center;
+}
+
+#pages .pageInfo{
+	padding: 0px 5px;
+	border: 0px;	
+}
+
+.bg01{
+	background-color: #FFC;
+}
+
+.bg02{
+	background-color: #CFC;
+}

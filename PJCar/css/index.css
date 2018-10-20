@@ -1,0 +1,17 @@
+body{
+	 background: url(backgroud.jpg) no-repeat;
+ 	 background-size: cover;
+	height: 580px;
+	text-align: center;
+}
+.frmsearch{
+	margin-top:150px;
+}
+.frmsearch input{
+	height: 50px;
+}
+.frmsearch button{
+	height: 50px;
+	background-color: blue;
+	border: blue;
+}

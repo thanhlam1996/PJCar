@@ -1,0 +1,51 @@
+#btn_add {
+	margin-top: 10px;
+}
+
+.row_add {
+	margin-top: 10px;
+}
+
+.btn_remove_overview {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_dimensionweight {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_exterior {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_interior {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_powertrain {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_fuelconsumption {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.btn_remove_technology {
+	margin-left: 10px;
+	width: 70px;
+}
+
+.submit {
+	float: right;
+	margin-bottom: 50px;
+}
+
+label.error {
+	color: red;
+}
