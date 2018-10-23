@@ -49,10 +49,13 @@ app.get("/getallcar", function (req, res) {
         }
     });
 });
-app.post("/search_result",urlbodyParser, function(req,res){
+app.post("/search_result", urlbodyParser, function (req, res) {
     var params = {
         TableName: "Cars"
     }
+
+    var txtsearch = req.body.txtsearch;
+
     docClient.scan(params, function (err, data) {
         if (err) {
             res.send(err);
@@ -61,49 +64,20 @@ app.post("/search_result",urlbodyParser, function(req,res){
         }
         else {
             console.log(data);
-            res.render("search_result", {data});
-            res.end();
+            var result = [];
+            data.Items.forEach(function (car) {
+                var object = JSON.stringify(car);
+                var n = object.search(txtsearch);
+                if (n != -1) {
+                    result.push(car);
+                }
+            });
+            console.log(result);
+            res.send(result);
         }
     });
-    // docClient.query(params, function (err, data) {
-    //     if (err) {
-    //         res.send(err);
-    //         console.error("ERR:  ", err, null, 2);
-    //         res.end();
-    //     }
-    //     else {
-    //         console.log(data);
-    //         res.render("search_result", {data});
-    //         res.end();
-    //     }
-    // });
+
 });
-// app.post("/search_result",urlbodyParser, function(req,res){
-//     var _version = req.body.txtsearch;
-//     console.log(_version);
-//     var params = {
-//         TableName: "Cars",
-//         KeyConditionExpression: "#vs=:v",
-//         ExpressionAttributeNames: {
-//             "#vs": "version"
-//         },
-//         ExpressionAttributeValues: {
-//             ":v": _version
-//         }
-//     };
-//     docClient.query(params, function (err, data) {
-//         if (err) {
-//             res.send(err);
-//             console.error("ERR:  ", err, null, 2);
-//             res.end();
-//         }
-//         else {
-//             console.log(data);
-//             res.render("search_result", {data});
-//             res.end();
-//         }
-//     });
-// });
 
 //Get car by Manufacturer
 
