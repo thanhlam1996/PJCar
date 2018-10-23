@@ -6,6 +6,7 @@ var fs = require("fs");
 
 //gan thu muc tinh de doc duoc trong ejs
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/img'));
 app.use(express.static(__dirname + '/ckeditor'));
 aws.config.update({
@@ -27,11 +28,15 @@ app.get("/", function (req, res) {
     res.render("index");
     res.end();
 });
+
+// Show create car view
 app.get("/create", function (req, res) {
 
     res.render("createcar");
     res.end();
 });
+
+
 app.get("/getallcar", function (req, res) {
     var params = {
         TableName: "Cars"
@@ -49,6 +54,8 @@ app.get("/getallcar", function (req, res) {
         }
     });
 });
+
+// Response for search action
 app.post("/search_result", urlbodyParser, function (req, res) {
     var params = {
         TableName: "Cars"
@@ -130,4 +137,7 @@ app.post("/create", urlbodyParser, function (req, res) {
     }
 });
 
-
+// Show login view
+app.get("/login", function (req, res) {
+    res.render("login");
+})
