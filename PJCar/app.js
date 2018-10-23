@@ -141,3 +141,9 @@ app.post("/create", urlbodyParser, function (req, res) {
 app.get("/login", function (req, res) {
     res.render("login");
 })
+
+// Submit login form
+app.post("/",urlbodyParser, function (req, res) {
+    console.log(req.body.emaillogin);
+    res.end("Login success with email: " + req.body.emaillogin);
+})
