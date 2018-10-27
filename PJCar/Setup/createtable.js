@@ -40,14 +40,14 @@ dynamodb.createTable(carsParams, function (err, data) {
 var userParams = {
     TableName: "User",
     KeySchema: [
-        { AttributeName: "password", KeyType: "HASH" }, //partition key
-        { AttributeName: "email", KeyType: "RANGE" } //Sort key
+        { AttributeName: "email", KeyType: "HASH" }, //partition key
+        { AttributeName: "password", KeyType: "RANGE" } //Sort key
 
     ],
 
     AttributeDefinitions: [
-        { AttributeName: "password", AttributeType: "S" },
-        { AttributeName: "email", AttributeType: "S" }
+        { AttributeName: "email", AttributeType: "S" },
+        { AttributeName: "password", AttributeType: "S" }
     ],
 
     ProvisionedThroughput: {

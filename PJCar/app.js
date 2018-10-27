@@ -143,7 +143,42 @@ app.get("/login", function (req, res) {
 })
 
 // Submit login form
-app.post("/",urlbodyParser, function (req, res) {
+app.post("/login", urlbodyParser, function (req, res) {
+
     console.log(req.body.emaillogin);
-    res.end("Login success with email: " + req.body.emaillogin);
+    var email = req.body.emaillogin;
+    var pass = req.body.passwordlogin;
+
+    var params = {
+        TableName: "User",
+        KeyConditionExpression: "#email = :email",
+        ExpressionAttributeNames: {
+            "#email": "email"
+        },
+        ExpressionAttributeValues: {
+            ":email": email
+        }
+    };
+
+    docClient.query(params, function (err, data) {
+        if (err) {
+            res.send(err);
+            console.error("ERR:  ", err, null, 2);
+            res.end();
+        }
+        else {
+            console.log("Get users info success.");
+            if (data.Items.length == 0) {
+                console.log("Email is not exist in system.");
+                res.end("Email is not exist.");
+            } else {
+                if (data.Items[0].password == pass) {
+                    res.end("Login success with email: " + req.body.emaillogin);
+                }
+                else {
+                    res.end("Password is invalid.");
+                }
+            }
+        }
+    });
 })

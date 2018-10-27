@@ -1,2 +1,2 @@
-java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -inMemory
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar
 pause
