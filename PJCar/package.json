@@ -11,6 +11,9 @@
   "dependencies": {
     "aws-sdk": "^2.333.0",
     "body-parser": "^1.18.3",
+    "busboy": "^0.2.14",
+    "busboy-body-parser": "^0.3.2",
+    "connect-busboy": "0.0.2",
     "ejs": "^2.6.1",
     "express": "^4.16.4"
   }
