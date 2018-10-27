@@ -182,3 +182,15 @@ app.post("/login", urlbodyParser, function (req, res) {
         }
     });
 })
+
+// Test submit upload image
+app.get("/testupload", function (req, res) {
+    console.log("Success to get test html");
+    res.render("test_upload_img");
+})
+
+app.post("/testupload", urlbodyParser, function (req, res) {
+    console.log(req.body);
+    console.log(req.header);
+    console.log(req.query);
+})
