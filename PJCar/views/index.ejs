@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" href="item-template.css" type="text/css">
 
   <style>
     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
@@ -28,41 +29,48 @@
       padding: 25px;
     }
   </style>
+
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Logo</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="http://localhost:8081/create">Create car</a></li>
-          <li><a href="#">Deals</a></li>
-          <li><a href="#">Stores</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://localhost:8081/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <% include header %>
+
   <div class="container">
+
     <form class="form-inline frmsearch" action="http://localhost:8081/search_result" method="post">
       <input type="text" class="form-control" size="60" placeholder="Car Name..." name="txtsearch">
       <button type="submit" class="btn btn-danger">Search</button>
       <!-- <input type="submit" value="Search"> -->
     </form>
-  </div><br><br>
+
+    <% cars.forEach(function(car){ %>
+    <a class="col-sm-4 item" href="#">
+      <div class="item-header">
+        <h3>
+          <%= car.carname %>
+        </h3>
+        <h5>
+          <%= car.version %>
+        </h5>
+      </div>
+      <div class="item-content">
+        <p> Content </p>
+      </div>
+    </a>
+    <% })%>
+
+    <script>
+      $(document).ready(function () {
+        if (<%= count %> > 0) {
+        $(".frmsearch").css("margin-top", "-20px");
+      } else {
+        $(".frmsearch").css("margin-top", "200px");
+      }
+      });
+    </script>
+  </div>
+  <br><br>
+
 </body>
 
 </html>

@@ -32,7 +32,7 @@ var docClient = new aws.DynamoDB.DocumentClient();
 
 //Get all car ==Scan
 app.get("/", function (req, res) {
-    res.render("index");
+    res.render("index", { cars: [], count: 0 });
     res.end();
 });
 
@@ -68,29 +68,33 @@ app.post("/search_result", urlbodyParser, function (req, res) {
         TableName: "Cars"
     }
 
-    var txtsearch = req.body.txtsearch;
+    var txtsearch = req.body.txtsearch.trim();
 
-    docClient.scan(params, function (err, data) {
-        if (err) {
-            res.send(err);
-            console.error("ERR:  ", err, null, 2);
-            res.end();
-        }
-        else {
-            console.log(data);
-            var result = [];
-            data.Items.forEach(function (car) {
-                var object = JSON.stringify(car);
-                var n = object.search(txtsearch);
-                if (n != -1) {
-                    result.push(car);
-                }
-            });
-            console.log(result);
-            res.send(result);
-        }
-    });
-
+    if (txtsearch.length == 0) {
+        res.render('index', { cars: [], count: 0 })
+    }
+    else {
+        docClient.scan(params, function (err, data) {
+            if (err) {
+                res.send(err);
+                console.error("ERR:  ", err, null, 2);
+                res.end();
+            }
+            else {
+                console.log(data);
+                var result = [];
+                data.Items.forEach(function (car) {
+                    var object = JSON.stringify(car);
+                    var n = object.toLowerCase().search(txtsearch.toLowerCase());
+                    if (n != -1) {
+                        result.push(car);
+                    }
+                });
+                console.log(result);
+                res.render('index', { cars: result, count: result.length });
+            }
+        });
+    }
 });
 
 //Get car by Manufacturer
@@ -188,6 +192,11 @@ app.post("/login", urlbodyParser, function (req, res) {
             }
         }
     });
+})
+
+// Test template
+app.get("/testtemplate", function (req, res) {
+    res.render("test-template");
 })
 
 // Test submit upload image

@@ -1,41 +1,84 @@
 [
     {
-        "carname":"honda-cavic",
-        "version":"2018-2019",
-        "info":{
-            "overview":{
-                "manufacturer":"Honda",
-                "production":"2016-2018"
+        "carname": "honda-cavic",
+        "version": "2018-2019",
+        "info": {
+            "overview": {
+                "manufacturer": "Honda",
+                "production": "2016-2018"
             }
         }
     },
     {
-        "carname":"hoda-city",
-        "version":"2018-2019",
-        "info":{
-            "overview":{
-                "manufacturer":"Honda",
-                "production":"2016-2018"
+        "carname": "hoda-city",
+        "version": "2018-2019",
+        "info": {
+            "overview": {
+                "manufacturer": "Honda",
+                "production": "2016-2018"
             }
         }
     },
     {
-        "carname":"Mercedes-S600",
-        "version":"2018-2019",
-        "info":{
-            "overview":{
-                "manufacturer":"Mercedes-Benz",
-                "production":"2016-2018"
+        "carname": "Mercedes-S600",
+        "version": "2018-2019",
+        "info": {
+            "overview": {
+                "manufacturer": "Mercedes-Benz",
+                "production": "2016-2018"
             }
         }
     },
     {
-        "carname":"Mercides-S600-Maybach",
-        "version":"2018-2019",
-        "info":{
-            "overview":{
-                "manufacturer":["Mercedes-Ben","Maybach"],
-                "production":"2016-2018"
+        "carname": "Mercides-S600-Maybach",
+        "version": "2018-2019",
+        "info": {
+            "overview": {
+                "manufacturer": [
+                    "Mercedes-Ben",
+                    "Maybach"
+                ],
+                "production": "2016-2018"
+            }
+        }
+    },
+    {
+        "carname": "Ford Mustang",
+        "version": "2015",
+        "info": {
+            "overview": {
+                "manufacturer": "Ford",
+                "production": "2015"
+            }
+        }
+    },
+    {
+        "carname": "Lexus LS-500",
+        "version": "2018",
+        "info": {
+            "overview": {
+                "manufacturer": "Lexus",
+                "production": "2018"
+            }
+        }
+    },
+    {
+        "carname": "Chevrolet Camaro",
+        "version": "2017",
+        "info": {
+            "overview": {
+                "manufacturer": "Chevrolet",
+                "production": "2017"
+            }
+        }
+    },
+    {
+        "carname": "Lamboghini Aventador",
+        "version": "2015",
+        "info": {
+            "overview": {
+                "manufacturer": "Lamboghini",
+                "production": "2015"
             }
         }
     }

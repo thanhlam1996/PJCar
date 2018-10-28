@@ -1,7 +1,7 @@
 body{
-	 background: url(backgroud.jpg) no-repeat;
+	 background: url(backgroud.jpg) no-repeat fixed;
  	 background-size: cover;
-	height: 580px;
+	height: auto;
 	text-align: center;
 }
 .frmsearch{
